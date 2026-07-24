@@ -13,6 +13,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt update && apt install -y \
 RUN pip install --no-cache-dir pymupdf4llm pytest fontTools
 
 # 跑一下测试
-RUN pytest PyMuPDF/tests
+RUN git clone https://github.com/pymupdf/PyMuPDF.git && pytest PyMuPDF/tests && rm -rf PyMuPDF
 
 WORKDIR /workspace
